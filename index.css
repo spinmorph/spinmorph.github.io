@@ -60,10 +60,13 @@ header table {
   height: 100vh;
   background: rgba(0, 0, 0, 0.92);
   position: fixed;
-  z-index: 4;
+  top: 0;
+  left: 0;
+  z-index: 9998;
   display: none;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 #magnify h1 {
   position: absolute;
@@ -82,7 +85,10 @@ header table {
   height: 90%;
   background-size: contain !important;
   background-repeat: no-repeat !important;
-  margin: 0px auto;
+  background-position: center center !important;
+  margin: 0 auto;
+  position: relative;
+  top: 0;
 }
 #logo {
   font-size: 24px;
@@ -107,6 +113,7 @@ header table {
 }
 #top_part tr td {
   width: 50%;
+  vertical-align: middle;
 }
 #about {
   width: 84% !important;
@@ -168,17 +175,41 @@ header table {
   width: 50%;
   height: 95vh;
   background: none;
-  padding: 20px;
-  vertical-align: middle;
+  padding: 0;
+  vertical-align: top;
+  position: relative;
 }
-
-#rightImage iframe {
+#pano-wrap {
+  position: relative;
   width: 100%;
-  height: 100%;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 140, 220, 0.2);
-  display: block;
+  height: 95vh;
+}
+#pano-frame {
+  width: 100%;
+  height: 95vh;
   border: none;
+  display: block;
+}
+#pano-btn {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  cursor: none !important;
+  transition: 0.3s ease;
+  z-index: 10;
+  backdrop-filter: blur(6px);
+}
+#pano-btn:hover {
+  background: rgba(255, 44, 90, 0.8);
+  border-color: rgb(255, 44, 90);
+  box-shadow: 0 4px 20px rgba(255, 44, 90, 0.5);
 }
 #work {
   width: 92vw;
@@ -328,7 +359,18 @@ button:focus {
     cursor: pointer;
   }
   #rightImage {
-    display: none;
+    display: block;
+    width: 100%;
+    height: 50vh;
+    padding: 0;
+  }
+  #pano-wrap {
+    width: 100%;
+    height: 50vh;
+  }
+  #pano-frame {
+    width: 100%;
+    height: 50vh;
   }
   #top_part {
     border: 0px;
@@ -336,6 +378,7 @@ button:focus {
   #top_part tr td {
     width: 100%;
     text-align: center;
+    display: block;
   }
   #about {
     width: 92% !important;
