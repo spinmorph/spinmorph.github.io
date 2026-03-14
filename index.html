@@ -129,6 +129,20 @@
       }
     </style>
   </head>
+  <script>
+    function openFullscreen() {
+      const iframe = document.getElementById("pano-frame");
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.webkitRequestFullscreen) {
+        iframe.webkitRequestFullscreen();
+      } else if (iframe.mozRequestFullScreen) {
+        iframe.mozRequestFullScreen();
+      } else if (iframe.msRequestFullscreen) {
+        iframe.msRequestFullscreen();
+      }
+    }
+  </script>
   <body>
     <!-- MESH CANVAS — behind everything -->
     <canvas id="mesh-canvas"></canvas>
@@ -189,22 +203,22 @@
           </table>
         </td>
         <td
-          id="rightImage"
-          class="animated jackInTheBox"
-          style="animation-delay: 2.2s"
-        >
-          <iframe
-            src="panorama/index.html"
-            width="520"
-            height="420"
-            frameborder="0"
-            allowfullscreen
-            style="
-              border-radius: 16px;
-              box-shadow: 0 8px 32px rgba(0, 140, 220, 0.2);
-            "
-          ></iframe>
-        </td>
+      id="rightImage"
+      class="animated jackInTheBox"
+      style="animation-delay: 2.2s"
+    >
+      <div id="pano-wrap">
+        <iframe
+          id="pano-frame"
+          src="panorama/index.html"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+        <button id="pano-btn" onclick="openFullscreen()">
+          <i class="fas fa-expand"></i> Full 360°
+        </button>
+      </div>
+    </td>
       </tr>
     </table>
 
