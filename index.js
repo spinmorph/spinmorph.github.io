@@ -95,4 +95,39 @@ $(document).ready(function() {
             alert("Please fill in all fields.");
         }
     });
+
 });
+
+// ── Disable right-click context menu (native — runs outside jQuery) ──
+document.addEventListener("contextmenu", function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+}, true); // true = capture phase, fires before anything else
+
+// ── Block inspect/save/source shortcuts ─────────────────────────────
+document.addEventListener("keydown", function(e) {
+    // F12
+    if (e.keyCode === 123) {
+        e.preventDefault();
+        return false;
+    }
+    // Ctrl+U, Ctrl+S, Ctrl+P
+    if (e.ctrlKey && [85, 83, 80].includes(e.keyCode)) {
+        e.preventDefault();
+        return false;
+    }
+    // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
+    if (e.ctrlKey && e.shiftKey && [73, 74, 67].includes(e.keyCode)) {
+        e.preventDefault();
+        return false;
+    }
+}, true); // capture phase
+
+// ── Disable image drag ───────────────────────────────────────────────
+document.addEventListener("dragstart", function(e) {
+    if (e.target.tagName === "IMG") {
+        e.preventDefault();
+        return false;
+    }
+}, true);
