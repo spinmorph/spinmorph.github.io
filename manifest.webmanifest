@@ -1,0 +1,17 @@
+{
+  "name": "spinmorph — architectural visualization",
+  "short_name": "spinmorph",
+  "description": "Photorealistic architectural visualization — stills, motion and everything in between.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#262322",
+  "theme_color": "#262322",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
